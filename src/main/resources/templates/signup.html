@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+					  th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text=${title}></title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					<div class="my-cart">
+						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+						  <p class="text-center" th:text="${session.message.content}"></p>
+						  <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+					
+						<h1>Registration Page</h1>
+							<form th:action="@{/do_register}" th:object="${user}" method="post">
+							 
+							 <div class="form-group">
+							    <label for="name">Name</label>
+							    
+							    <input type="text"
+							    	name="name"  
+								    class="form-control"
+								    th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"  
+								    th:value="${user.name}" 
+								    placeholder="Enter Name">
+							    
+							    <div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}">
+							    </div>
+							  </div>
+							  
+							  
+							  <div class="form-group">
+							    <label for="email">Email address</label>
+							    <input type="email" 
+							    class="form-control"
+							    id="email"
+							    name="email"
+							    th:classappend="${#fields.hasErrors('email')?'is-invalid':''}"
+							    th:value="${user.email}" 
+							    placeholder="Enter email">
+							    
+							    <div class="invalid-feedback" th:each="e:${#fields.errors('email')}" th:text="${e}">
+							    </div>
+							  </div>
+							  
+							  <div class="form-group">
+							    <label for="password">Password</label>
+							    <input type="password"
+							     class="form-control"
+							     id="password"
+							     th:classappend="${#fields.hasErrors('password')?'is-invalid':''}"
+							     name="password"
+							     placeholder="Enter Password">
+							     <div class="invalid-feedback" th:each="e:${#fields.errors('password')}" th:text="${e}">
+							     </div>
+							  </div>
+							  <button type="submit" class="btn btn-primary">Submit</button><span>&nbsp;&nbsp;Already User <a href="/signin">Login Here</a></span>
+							</form>
+					</div>
+				
+				</div>
+				
+			</div>
+		
+		
+		</div>
+	
+	
+	</section>
+</body>
+</html>

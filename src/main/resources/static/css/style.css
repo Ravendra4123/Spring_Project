@@ -1,0 +1,16 @@
+.my-cart{
+	padding:20px;
+	background-color: white;
+	border-radius: 8px;
+	margin-top:100px;
+	
+}
+img{
+	height:250px;
+	width:250px;
+	
+}
+
+body{
+	background-color: #ccc;
+}
