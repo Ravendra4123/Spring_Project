@@ -1,14 +1,19 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-					  th:replace="base::layout(~{::section})">
+	th:replace="normal/normal_base::layout(~{::section})">
 <head>
-	<meta charset="UTF-8" />
-	<!-- <title th:text=${title}></title> -->
+<meta charset="UTF-8" />
+<!-- <title th:text=${title}></title> -->
 </head>
 <body>
-<section>
-
-</section>
+	<section>
+		<h1 th:text="${user.name}"></h1>
+		<h1 th:text="${user.email}"></h1>
+		<h1 th:text="${user.about}"></h1>
+		<h1 th:text="${user.imageUrl}"></h1>
+		<h1 th:text="${user.role}"></h1>
 	
+	</section>
+
 </body>
 </html>
