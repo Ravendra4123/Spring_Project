@@ -70,6 +70,7 @@ public class HomeController {
 			}else {
 			
 			user.setRole("ROLE_USER");
+			user.setAbout("I am a normal user.");
             user.setEnabled(true);
             user.setImageUrl("default.png");
 			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

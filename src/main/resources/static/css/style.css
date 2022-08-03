@@ -6,11 +6,80 @@
 	
 }
 img{
-	height:250px;
 	width:250px;
-	
+	height:250px
 }
+
 
 body{
 	background-color: #ccc;
+}
+
+/*user dashboard sidebar */
+
+@media only screen and (max-width:600px){
+	.sidebar{
+		display:none;
+		width:80% !important;
+		background-color: white;
+		height:100%;
+		position: fixed;
+		padding-top:45px;
+	
+	}
+.content{
+	margin-left: 0%!important;
+	
+	}
+	
+}
+.sidebar{
+	width:18%;
+	background-color: white;
+	height:100%;
+	position: fixed;
+	padding-top:45px;
+	z-index: 999999999999999;
+}
+
+.sidebar a{
+	display: block;
+	width:100%;
+	padding:10px 25px;
+	text-decoration: none;
+	color: gray;
+}  
+ 
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+
+.sidebar .divider{
+	height: .5px;
+	width:100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+.sidebar .crossBtn{
+	position: absolute;
+	top: 0px;
+	right: 35px;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.content{
+	margin-left: 20%;
+	
+}
+/* add contect form */
+.my-cart1{
+	padding:20px;
+	background-color: white;
+	border-radius: 8px;
+	margin-top:10px;
+	width:600px;
+	margin-left:100px;
+	
 }

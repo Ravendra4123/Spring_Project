@@ -1,0 +1,105 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/normal_base::layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   
+	<title th:text=${title}></title> 
+</head>
+<body>
+
+	<section>
+		<div class="card ml-2 mr-4">
+        <div class="card-body">
+            <h1 class="text-center">Add Contact</h1>
+            <div class="container-fluid mt-1">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <form action="#" 
+                        th:object="${contact}" 
+                        enctype="multipart/form-data" 
+                        method="POST"                  
+						th:action="@{/user/process-contact}" 
+						class="mt-2">
+
+                            <!--First name-->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-plus"></i></span>                               
+                                <input type="text"
+                                       class="form-control"
+                                       required
+                                       placeholder="Enter name here"
+                                       name="name"                                     
+                                       th:value="${contact.name}"
+                                     >
+                                
+                            </div>
+                            
+                            <!--Phone-->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                <input type="number"
+                                       class="form-control"
+                                       placeholder="Enter phone number here"
+                                       name="phone"
+                                       id="phone"   
+                                       required
+                                       min="10"                                   
+                                       th:value="${contact.phone}">                                   
+                           </div>
+
+
+                            <!--Email-->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                <input type="email"
+                                       id="email"
+                                       required
+                                       class="form-control"
+                                       placeholder="Enter email here"
+                                       name="email"
+                                       th:value="${contact.email}">
+                                         
+                            </div>
+                            
+                            <!--Description-->
+                            <div class="input-group mb-3">
+                                <textarea id="description"
+                                       class="form-control"
+                                       placeholder="Enter description"
+                                       name="description"
+                                       required
+                                       th:value="${contact.description}" ></textarea>
+                                       
+                                         
+                            </div>
+
+                            <!--Contact Img-->
+                            <div class="input-group mt-3 mb-3">
+                                <input type="file"
+                                       id="inputGroupFile04"
+                                       th:value="${contact.imageUrl}"
+                                       name="processImage"
+                                       required
+                                       >
+
+                            </div>
+                            
+                            <!--Save Button-->
+                            <div class="container text-center">
+                                <button class="btn btn-outline-primary">Save Contact</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	</section>
+</body>
+</html>

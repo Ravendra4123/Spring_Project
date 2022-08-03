@@ -7,37 +7,56 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title th:text=${title}></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-<div>
-		<nav class="navbar navbar-expand-lg navbar-light bg-info ">
-		  <a class="navbar-brand text-light" href="#">Spring Project</a>
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+		  <a class="navbar-brand text-light" th:text="${user.name}" href="#">Spring Project</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
 		
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
 		    <ul class="navbar-nav ml-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
+		        <a class="nav-link text-light" th:href="@{/user/dashboard}">Home <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link text-light" href=""></a>
+		        <a class="nav-link text-light" th:text="${user.name}"></a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link text-light" href="/logout">Logout</a>
+		        <a class="nav-link text-light" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Logout</a>
 		      </li>
 		    </ul>
-		   
-		    
 		  </div>
 		</nav>
+	
+	
+	<div class="sidebar mt-2">
+		<span class="crossBtn" onclick="toggleSidebar()">&times;</span>
+	
+		<a th:href="@{/user/dashboard}" class="item"><i class="fas fa-home"></i> Home</a>
+		<a th:href="@{/user/show-conatacts}" class="item"><i class="fas fa-id-card-alt"></i> View</a>
+		<a th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i> Add</a>
+		<a href="" class="item"><i class="fas fa-user-circle"></i> Profile</a>
+		<a href="" class="item"><i class="fas fa-cogs"></i> Setting</a>
+		<div class="divider"></div>
+	
+	</div>
+	<div class="content mt-5">
+		<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+		
+		<div th:if="${session.message}" class="mr-4 ml-2 text-center">
+			<div th:classappend="${session.message.type}" class="alert" role="alert"><span th:text="${session.message.content}"></span></div>
+		<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+		<div th:replace="${content}"></div>
 	</div>
 
-<div th:replace="${content}"></div>
-
+<script type="text/javascript" src="/js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

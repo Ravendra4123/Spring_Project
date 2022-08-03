@@ -15,10 +15,10 @@
 						<h1>Login Page</h1>
 							<form th:action="@{/dologin}" method="post" action="#">
 							
-							<div th:if="${param.error}" class="class alert-danger">
+							<div th:if="${param.error}" class="class alert-danger p-2 text-center">
 								Invalid User Name & Password.
 							</div>
-							<div th:if="${param.logout}" class="class alert-success">
+							<div th:if="${param.logout}" class="class alert-success p-2 text-center">
 								You have been logged out..
 							</div>
 							
