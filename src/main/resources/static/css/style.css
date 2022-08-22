@@ -14,6 +14,11 @@ body{
 	background-color: #ccc;
 }
 
+.active{
+	background-color: #17a2b8!important;
+	color:white !important;	
+}
+
 /*user dashboard sidebar */
 
 @media only screen and (max-width:600px){
@@ -82,11 +87,7 @@ body{
 	margin-left:100px;
 	
 }
-/* dark mode */
-.dark-mode {
-        background-color: black;
-        color: white;
- }
+
 /* profile image */
 .profile_img{
 		width:100px;

@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 </head>
 <body>
 
@@ -38,13 +40,11 @@
 	<div class="sidebar mt-2">
 		<span class="crossBtn" onclick="toggleSidebar()">&times;</span>
 	
-		<a th:href="@{/user/dashboard}" class="item"><i class="fas fa-home"></i> Home</a>
-		<a th:href="@{/user/show-conatacts/0}" class="item"><i class="fas fa-id-card-alt"></i> View</a>
-		<a th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i> Add</a>
-		<a href=""th:href="@{/user/user-profile}" class="item"><i class="fas fa-user-circle"></i> Profile</a>
-		<a href="" class="item"><i class="fas fa-cogs"></i> Setting</a>
+		<a id="home-link" th:href="@{/user/dashboard}" class="item active"><i class="fas fa-home"></i> Home</a>
+		<a id="view-link" th:href="@{/user/show-conatacts/0}" class="item active"><i class="fas fa-id-card-alt"></i> View</a>
+		<a id="add-link" th:href="@{/user/add-contact}" class="item active"><i class="fas fa-pencil-alt"></i> Add</a>
+		<a id="profile-link" href=""th:href="@{/user/user-profile}" class="item active"><i class="fas fa-user-circle"></i> Profile</a>
 		
-		<button onclick="darkMode()" class="m-3 btn btn-outline-dark">Dark Mode</button>
 		
 		<div class="divider"></div>
 	</div>

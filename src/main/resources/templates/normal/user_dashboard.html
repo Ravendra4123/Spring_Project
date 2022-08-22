@@ -16,11 +16,20 @@
 						<img th:src="@{'/images/'+${user.imageUrl}}" class="user_img">	
 					</div>
 				</div>		
-			<h5 class="ml-1">Note:- The Smart contact manager web app in this app you can save own contact.</h5>
+			<h5 class="m-3"><strong>Note:- </strong>This is the Smart contact manager web application.In this app you can create your profile and save own contacts & much more.</h5>
 			
 			</div>
 			
 		</div>
+	<script>
+        $(document).ready(()=>{
+            $(".item").removeClass("active");
+            $("#home-link").addClass("active");
+            
+        });
+        
+    </script>
+    
 		
 	</section>
 
