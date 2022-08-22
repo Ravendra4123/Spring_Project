@@ -11,3 +11,26 @@ const toggleSidebar=()=>{
 
     }
 }
+function darkMode(){
+	var element=document.body;
+	element.classList.toggle("dark-mode");
+}
+
+
+function deleteContact(cId){
+	swal({
+	  title: "Are you sure?",
+	  text: "You want to delete this contact.",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+	})
+	.then((willDelete) => {
+	  if (willDelete) {
+	    window.location="/user/delete-contact/"+cid;
+	    
+	  } else {
+	    swal("Your Contact is Save.");
+	  }
+	});
+}

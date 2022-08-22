@@ -1,6 +1,9 @@
 package com.example.project.controller;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -69,10 +72,14 @@ public class HomeController {
 				return "signup";	
 			}else {
 			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+            LocalDateTime now = LocalDateTime.now();  
+            
+            user.setDate(dtf.format(now));
 			user.setRole("ROLE_USER");
 			user.setAbout("I am a normal user.");
             user.setEnabled(true);
-            user.setImageUrl("default.png");
+            user.setImageUrl("default.jpg");
 			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 			
 			User result=this.userRepository.save(user);

@@ -1,5 +1,7 @@
 package com.example.project.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +29,7 @@ public class Contact {
     private String email;
     private String imageUrl;
     private String description;
+    private String date;
   
 
     @ManyToOne
@@ -83,6 +86,15 @@ public class Contact {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public User getUser() {
         return user;
@@ -91,4 +103,11 @@ public class Contact {
     public void setUser(User user) {
         this.user = user;
     }
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return this.cId==((Contact)obj).getcId();
+	}
+    
 }

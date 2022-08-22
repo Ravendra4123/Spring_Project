@@ -5,11 +5,10 @@
 	margin-top:100px;
 	
 }
-img{
+.img{
 	width:250px;
 	height:250px
 }
-
 
 body{
 	background-color: #ccc;
@@ -83,3 +82,24 @@ body{
 	margin-left:100px;
 	
 }
+/* dark mode */
+.dark-mode {
+        background-color: black;
+        color: white;
+ }
+/* profile image */
+.profile_img{
+		width:100px;
+		height:100px;
+		border:1px solid black;
+		border-radius:50%;
+		object-fit:cover;
+	}
+	/* profile image */
+.user_img{
+		width:200px;
+		height:200px;
+		border:1px solid black;
+		border-radius:50%;
+		object-fit:cover;
+	}

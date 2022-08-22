@@ -38,9 +38,10 @@ public class User {
     private String about;
     private boolean enabled;
     private String imageUrl;
+    private String date;
 
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user",orphanRemoval=true)
     private List<Contact> contacts = new ArrayList<>();
 
     public User() {
@@ -110,6 +111,18 @@ public class User {
 	public void setAbout(String about) {
 		this.about = about;
 	}
+	
+	
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 
 	public List<Contact> getContacts() {
         return contacts;
@@ -118,6 +131,8 @@ public class User {
     public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
     }
+    
+    
 
 	@Override
 	public String toString() {
